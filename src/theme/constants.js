@@ -1,4 +1,4 @@
-export const theme = {
+export const constants = {
   colors: {
     primary: {
       'violet': 'hsl(235, 69%, 61%)',
@@ -19,4 +19,4 @@ export const theme = {
   }
 }
 
-export default theme;
+export default constants;

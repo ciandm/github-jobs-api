@@ -1,13 +1,13 @@
-import './App.css';
-import Theme from './theme/theme';
-import GlobalStyle from './GlobalStyle';
+import Button from './components/Button/Button';
+import ThemeProvider from './theme/ThemeProvider';
+import Form from './components/Form/Form';
 
 function App() {
   return (
-    <>
-      <GlobalStyle />
-      <div>App</div>
-    </>
+    <ThemeProvider>
+      <Button />
+      <Form />
+    </ThemeProvider>
   );
 }
 

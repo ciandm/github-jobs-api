@@ -15,7 +15,11 @@ export const GlobalStyle = createGlobalStyle`
   }
 
   body {
-    font-family: 'Kumbh Sans', sans-serif;
+    background-color: ${({ theme, dark }) => dark ?
+    theme.colors.primary['midnight'] :
+    theme.colors.secondary['lightGrey']};
+    font-family: 'Kumbh Sans', sans - serif;
+    min-height: 100vh;
   }
 `
 
