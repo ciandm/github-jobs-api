@@ -24,6 +24,8 @@ function ThemeProvider({ children }) {
     }))
   }
 
+  if (!themeState.hasThemeLoaded) return null;
+
   return (
     <StyledThemeProvider theme={constants}>
       <ThemeContext.Provider

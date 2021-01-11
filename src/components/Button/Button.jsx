@@ -6,6 +6,7 @@ import { useTheme } from '../../theme/ThemeProvider'
 const Button = ({
   variation,
   label,
+  type,
   handleButtonClick
 }) => {
 
@@ -17,7 +18,7 @@ const Button = ({
     <Styled.Button
       variation={variation}
       dark={dark}
-      onClick={() => handleButtonClick()}
+      type={type}
     >
       {label}
     </Styled.Button>
@@ -29,11 +30,11 @@ export default Button
 Button.defaultProps = {
   label: "Button",
   variation: "primary",
-  handleButtonClick: () => console.log('clicked')
 }
 
 Button.propTypes = {
   variation: PropTypes.string.isRequired,
   label: PropTypes.string.isRequired,
-  handleButtonClick: PropTypes.func.isRequired,
+  type: PropTypes.oneOf(['submit', 'reset', 'button']).isRequired,
+  handleButtonClick: PropTypes.func,
 }

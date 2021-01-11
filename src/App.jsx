@@ -1,12 +1,15 @@
-import Button from './components/Button/Button';
 import ThemeProvider from './theme/ThemeProvider';
 import Form from './components/Form/Form';
+import AppContainer from './App.styled';
+import Header from './components/Header/Header';
 
 function App() {
   return (
     <ThemeProvider>
-      <Button />
-      <Form />
+      <Header />
+      <AppContainer>
+        <Form />
+      </AppContainer>
     </ThemeProvider>
   );
 }

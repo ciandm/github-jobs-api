@@ -1,6 +1,8 @@
 import styled, { css } from 'styled-components';
 
-export const Button = styled.button`
+export const Button = styled.button.attrs(({ type }) => ({
+  type: type
+}))`
   border: none;
   border-radius: 5px;
   cursor: pointer;

@@ -1,10 +1,15 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import iconChooser from '../../utils/iconChooser';
 import * as Styled from './Input.styled'
 
 function Input({
   dark,
-  icon
+  name,
+  icon,
+  value,
+  placeholder,
+  handleInputChange
 }) {
 
   return (
@@ -16,7 +21,10 @@ function Input({
       }
       <Styled.Input
         dark={dark}
-        placeholder="Enter something.."
+        name={name}
+        value={value}
+        placeholder={placeholder}
+        onChange={(e) => handleInputChange(name, e.target.value)}
       />
     </Styled.InputContainer>
   )
@@ -25,5 +33,14 @@ function Input({
 export default Input
 
 Input.defaultProps = {
-  icon: 'search'
+  icon: 'search',
+  placeholder: "This is a placeholder"
+}
+
+Input.propTypes = {
+  dark: PropTypes.bool.isRequired,
+  name: PropTypes.string.isRequired,
+  icon: PropTypes.string,
+  value: PropTypes.string.isRequired,
+  placeholder: PropTypes.string,
 }

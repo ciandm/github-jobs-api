@@ -3,7 +3,6 @@ import styled from 'styled-components';
 export const InputContainer = styled.div`
   display: flex;
   background-color: ${({ dark, theme }) => dark ? theme.colors.primary['veryDarkBlue'] : theme.colors.secondary['white']};
-  border-radius: 5px;
   overflow: hidden;
   padding: 2.8rem 3.2rem;
 
@@ -21,6 +20,7 @@ export const Input = styled.input`
   color: ${({ dark, theme }) => dark ? theme.colors.secondary['white'] : theme.colors.primary['veryDarkBlue']};
   font-size: 1.6rem;
   outline: none;
+  width: 100%;
 
   &::placeholder {
     color: ${({ dark, theme }) => dark ? theme.colors.secondary['white'] : theme.colors.primary['veryDarkBlue']};

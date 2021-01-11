@@ -1,6 +1,6 @@
 import {
   MdSearch,
-  MdPinDrop
+  MdPlace
 } from 'react-icons/md'
 
 export const iconChooser = icon => {
@@ -8,7 +8,7 @@ export const iconChooser = icon => {
     case 'search':
       return <MdSearch />;
     case 'location':
-      return <MdPinDrop />;
+      return <MdPlace />;
     default:
       throw new Error('Not a valid icon');
   }
