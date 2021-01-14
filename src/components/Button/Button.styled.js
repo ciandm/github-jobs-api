@@ -3,6 +3,7 @@ import styled, { css } from 'styled-components';
 export const Button = styled.button.attrs(({ type }) => ({
   type: type
 }))`
+  align-self: ${({ alignSelf }) => alignSelf ? alignSelf : ''};
   border: none;
   border-radius: 5px;
   cursor: pointer;

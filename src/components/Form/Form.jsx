@@ -1,21 +1,19 @@
-import React, { useState } from 'react'
+import React from 'react'
 import { useTheme } from '../../theme/ThemeProvider';
 import Input from '../Input/Input'
 import * as Styled from './Form.styled';
 import Button from '../Button/Button';
 import Checkbox from '../Checkbox/Checkbox';
 
-function Form() {
+function Form({
+  handleFormSubmit,
+  formInputs,
+  setFormInputs
+}) {
 
   const {
     dark
   } = useTheme();
-
-  const [formInputs, setFormInputs] = useState({
-    jobSpec: '',
-    location: '',
-    fullTime: false
-  })
 
   function handleInputChange(input, value) {
     setFormInputs(prevInput => ({
@@ -31,13 +29,6 @@ function Form() {
     }))
   }
 
-  function handleFormSubmit(e) {
-    e.preventDefault();
-    const { jobSpec, location, fullTime } = formInputs;
-    if (jobSpec === '' && location === '' && !fullTime) return;
-    console.log('form submitted');
-  }
-
   return (
     <Styled.Form
       dark={dark}
@@ -45,10 +36,10 @@ function Form() {
     >
       <Input
         dark={dark}
-        name="jobSpec"
+        name="description"
         placeholder="Filter by title, companies, expertise..."
         icon="search"
-        value={formInputs.jobSpec}
+        value={formInputs.descripton}
         handleInputChange={handleInputChange}
       />
       <Input

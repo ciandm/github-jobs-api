@@ -7,7 +7,8 @@ const Button = ({
   variation,
   label,
   type,
-  handleButtonClick
+  handleButtonClick,
+  alignSelf
 }) => {
 
   const {
@@ -19,6 +20,8 @@ const Button = ({
       variation={variation}
       dark={dark}
       type={type}
+      alignSelf={alignSelf}
+      onClick={handleButtonClick ? () => handleButtonClick() : null}
     >
       {label}
     </Styled.Button>
@@ -37,4 +40,5 @@ Button.propTypes = {
   label: PropTypes.string.isRequired,
   type: PropTypes.oneOf(['submit', 'reset', 'button']).isRequired,
   handleButtonClick: PropTypes.func,
+  alignSelf: PropTypes.string,
 }

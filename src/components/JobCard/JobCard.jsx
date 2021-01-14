@@ -3,29 +3,36 @@ import PropTypes from 'prop-types';
 import * as Styled from './JobCard.styled'
 
 function JobCard({
-  job,
+  companyLogo,
+  createdAt,
+  type,
+  title,
+  company,
+  location,
   ...restProps
 }) {
   return (
     <Styled.Card
       {...restProps}
     >
-      <Styled.Logo />
+      <Styled.Logo>
+        <img src={companyLogo} alt="Company logo" />
+      </Styled.Logo>
       <Styled.Header>
         <Styled.HeaderItem>5h ago</Styled.HeaderItem>
         <span />
-        <Styled.HeaderItem>Full Time</Styled.HeaderItem>
+        <Styled.HeaderItem>{type}</Styled.HeaderItem>
       </Styled.Header>
       <Styled.Title
         {...restProps}
       >
-        Senior Software Engineer
+        {title}
       </Styled.Title>
       <Styled.Company>
-        So Digital Inc.
+        {company}
       </Styled.Company>
       <Styled.Location>
-        Remote, Seoul, Tokyo, Mountain View, San Francisco
+        {location}
       </Styled.Location>
 
     </Styled.Card>

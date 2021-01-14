@@ -8,20 +8,35 @@ import {
 export const Card = styled.div`
   background-color: ${({ dark, theme }) => dark ? theme.colors.primary['veryDarkBlue'] : theme.colors.secondary['white']};
   border-radius: 6px;
+  cursor: pointer;
   display: flex;
   flex-direction: column;
   grid-column: span 4;
   padding: 4.8rem 3.2rem 3.2rem 3.2rem;
   position: relative;
+
+  &:hover > h3 {
+    color: ${({ theme }) => theme.colors.secondary['darkGrey']};
+  }
 `
 
 export const Logo = styled.div`
-  background-color: cornflowerblue;
+  align-items: center;
+  background-color: ${({ theme }) => theme.colors.primary['violet']};
   border-radius: 1.5rem;
+  display: flex;
+  justify-content: center;
   height: 5rem;
   position: absolute;
   top: calc(0% - 25px);
   width: 5rem;
+  
+
+  & img {
+    height: 36px;
+    width: 36px;
+    object-fit: contain;
+  }
 `
 
 export const Header = styled.div`
@@ -55,4 +70,5 @@ export const Company = styled(body)`
 
 export const Location = styled(h4)`
   color: ${({ theme }) => theme.colors.primary['violet']};
+  margin-top: auto;
 `

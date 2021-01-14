@@ -9,7 +9,6 @@ function App() {
     <ThemeProvider>
       <Header />
       <AppContainer>
-        <Form />
         <JobBoard />
       </AppContainer>
     </ThemeProvider>

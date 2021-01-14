@@ -41,6 +41,6 @@ Input.propTypes = {
   dark: PropTypes.bool.isRequired,
   name: PropTypes.string.isRequired,
   icon: PropTypes.string,
-  value: PropTypes.string.isRequired,
+  value: PropTypes.string,
   placeholder: PropTypes.string,
 }
