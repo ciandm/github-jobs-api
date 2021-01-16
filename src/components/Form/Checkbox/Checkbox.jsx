@@ -1,7 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types';
 import * as Styled from './Checkbox.styled';
-import iconCheck from '../../assets/icon-check.svg';
+import iconCheck from '../../../assets/icon-check.svg';
 
 const Checkbox = ({
   name,

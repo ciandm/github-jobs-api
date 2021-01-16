@@ -1,4 +1,4 @@
-import { useEffect, useReducer } from 'react'
+import { useState, useEffect, useReducer } from 'react'
 import axios from 'axios';
 
 const ACTIONS = {
@@ -15,6 +15,11 @@ function reducer(state, action) {
       return {
         loading: true,
         jobs: []
+      }
+    case ACTIONS.LOAD_MORE:
+      return {
+        ...state,
+        jobs: [...action.payload, ...state.jobs]
       }
     case ACTIONS.HAS_LOAD_MORE:
       return {
@@ -44,7 +49,6 @@ const API_URL = 'https://jobs.github.com/positions.json';
 const useFetchJobs = (params, page) => {
   const [state, dispatch] = useReducer(reducer, { jobs: [], loading: true, hasLoadMore: false });
 
-
   // fetch jobs
   useEffect(() => {
     const cancelToken1 = axios.CancelToken.source();
@@ -53,6 +57,7 @@ const useFetchJobs = (params, page) => {
       cancelToken: cancelToken1.token,
       params: {
         ...params,
+        markdown: true,
         page
       }
     })
@@ -64,6 +69,7 @@ const useFetchJobs = (params, page) => {
         dispatch({ type: ACTIONS.ERROR, payload: error })
       })
 
+    // fetch page + 1 to check if user can load more jobs
     const cancelToken2 = axios.CancelToken.source();
     axios.get(API_URL, {
       cancelToken: cancelToken2.token,

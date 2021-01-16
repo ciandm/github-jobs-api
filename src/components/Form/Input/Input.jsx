@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import iconChooser from '../../utils/iconChooser';
+import iconChooser from '../../../utils/iconChooser';
 import * as Styled from './Input.styled'
 
 function Input({

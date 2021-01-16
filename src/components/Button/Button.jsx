@@ -4,11 +4,9 @@ import * as Styled from './Button.styled';
 import { useTheme } from '../../theme/ThemeProvider'
 
 const Button = ({
-  variation,
   label,
-  type,
   handleButtonClick,
-  alignSelf
+  ...restProps
 }) => {
 
   const {
@@ -17,11 +15,9 @@ const Button = ({
 
   return (
     <Styled.Button
-      variation={variation}
-      dark={dark}
-      type={type}
-      alignSelf={alignSelf}
       onClick={handleButtonClick ? () => handleButtonClick() : null}
+      dark={dark}
+      {...restProps}
     >
       {label}
     </Styled.Button>
@@ -33,12 +29,14 @@ export default Button
 Button.defaultProps = {
   label: "Button",
   variation: "primary",
+  renderAs: "button"
 }
 
 Button.propTypes = {
   variation: PropTypes.string.isRequired,
   label: PropTypes.string.isRequired,
-  type: PropTypes.oneOf(['submit', 'reset', 'button']).isRequired,
+  type: PropTypes.oneOf(['submit', 'reset', 'button']),
   handleButtonClick: PropTypes.func,
   alignSelf: PropTypes.string,
+  as: PropTypes.string,
 }

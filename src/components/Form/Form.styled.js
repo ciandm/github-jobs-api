@@ -3,7 +3,6 @@ import styled from 'styled-components';
 export const Form = styled.form`
   background-color: ${({ dark, theme }) => dark ? theme.colors.primary['veryDarkBlue'] : theme.colors.secondary['white']};
   display: flex;
-  margin-top: -4rem;
   width: 100%;
 
   & > div:first-child {

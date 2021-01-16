@@ -1,24 +1,31 @@
-import React from 'react'
-import PropTypes from 'prop-types';
-import * as Styled from './JobCard.styled'
+import React from 'react';
+import * as Styled from './JobCard.styled';
 
 function JobCard({
+  job,
+  id,
   companyLogo,
   createdAt,
   type,
   title,
   company,
   location,
+  handleJobCardClick,
   ...restProps
 }) {
   return (
     <Styled.Card
+      onClick={() => handleJobCardClick(job)}
       {...restProps}
     >
-      <Styled.Logo>
+      <Styled.Logo
+        loading="true"
+      >
         <img src={companyLogo} alt="Company logo" />
       </Styled.Logo>
-      <Styled.Header>
+      <Styled.Header
+        loading="true"
+      >
         <Styled.HeaderItem>5h ago</Styled.HeaderItem>
         <span />
         <Styled.HeaderItem>{type}</Styled.HeaderItem>

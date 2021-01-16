@@ -1,9 +1,9 @@
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 import {
   h3,
   h4,
   body
-} from '../../theme/typography';
+} from '../../../theme/typography';
 
 export const Card = styled.div`
   background-color: ${({ dark, theme }) => dark ? theme.colors.primary['veryDarkBlue'] : theme.colors.secondary['white']};
@@ -12,6 +12,7 @@ export const Card = styled.div`
   display: flex;
   flex-direction: column;
   grid-column: span 4;
+  overflow: initial;
   padding: 4.8rem 3.2rem 3.2rem 3.2rem;
   position: relative;
 
@@ -30,6 +31,14 @@ export const Logo = styled.div`
   position: absolute;
   top: calc(0% - 25px);
   width: 5rem;
+
+  ${({ loading }) => loading && css`
+    background-color: ${({ theme }) => theme.colors.secondary['lightGrey']};
+
+    & img {
+      display: none;
+    }
+  `}
   
 
   & img {

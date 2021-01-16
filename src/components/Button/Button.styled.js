@@ -1,16 +1,20 @@
 import styled, { css } from 'styled-components';
 
-export const Button = styled.button.attrs(({ type }) => ({
-  type: type
+export const Button = styled.button.attrs(({ type, href, target }) => ({
+  type,
+  href,
+  target
 }))`
   align-self: ${({ alignSelf }) => alignSelf ? alignSelf : ''};
   border: none;
   border-radius: 5px;
   cursor: pointer;
+  flex-shrink: 0;
   font-size: 1.6rem;
   font-weight: 700;
   outline: none;
   padding: 1.6rem 3.6rem;
+  text-decoration: none;
 
   ${({ variation, dark }) => {
     // main button, consistent across light and dark mode
@@ -27,7 +31,7 @@ export const Button = styled.button.attrs(({ type }) => ({
 
     if (variation === 'secondary') {
       // secondary button different based on light/dark mode
-      if (dark) {
+      if (!dark) {
         return css`
         background-color: hsla(235, 69%, 61%, .1);
         color: ${({ theme }) => theme.colors.primary['violet']};

@@ -1,9 +1,9 @@
 import React from 'react'
 import { useTheme } from '../../theme/ThemeProvider';
-import Input from '../Input/Input'
+import Input from './Input/Input'
 import * as Styled from './Form.styled';
 import Button from '../Button/Button';
-import Checkbox from '../Checkbox/Checkbox';
+import Checkbox from './Checkbox/Checkbox';
 
 function Form({
   handleFormSubmit,
@@ -39,7 +39,7 @@ function Form({
         name="description"
         placeholder="Filter by title, companies, expertise..."
         icon="search"
-        value={formInputs.descripton}
+        value={formInputs.description}
         handleInputChange={handleInputChange}
       />
       <Input
