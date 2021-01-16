@@ -9,6 +9,11 @@ export const Header = styled.div`
   justify-content: center;
   padding: 4.6rem 0 9.6rem;
   width: 100%;
+
+  @media ${({ theme }) => theme.mediaQueries['below-768']} {
+    padding-left: 4rem;
+    padding-right: 4rem;
+  }
 `
 
 export const HeaderContents = styled.div`

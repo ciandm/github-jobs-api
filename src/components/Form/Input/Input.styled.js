@@ -12,6 +12,10 @@ export const InputContainer = styled.div`
     margin-right: 16px;
     width: 24px;
   }
+
+  @media ${({ theme }) => theme.mediaQueries['below-768']} {
+    padding: 2.8rem 2.4rem;
+  }
 `
 
 export const Input = styled.input`

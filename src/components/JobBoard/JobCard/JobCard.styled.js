@@ -5,13 +5,21 @@ import {
   body
 } from '../../../theme/typography';
 
+export const Skeleton = styled.div`
+  background-color: ${({ dark }) => dark ? 'hsl(219, 35%, 10%)' : '#FFF'};
+  border-radius: 4px;
+  height: ${({ height }) => height};
+  margin-bottom: ${({ marginBottom }) => marginBottom};
+  width: 100%;
+`
+
 export const Card = styled.div`
   background-color: ${({ dark, theme }) => dark ? theme.colors.primary['veryDarkBlue'] : theme.colors.secondary['white']};
   border-radius: 6px;
   cursor: pointer;
   display: flex;
   flex-direction: column;
-  grid-column: span 4;
+  grid-column: span 1;
   overflow: initial;
   padding: 4.8rem 3.2rem 3.2rem 3.2rem;
   position: relative;
@@ -34,12 +42,7 @@ export const Logo = styled.div`
 
   ${({ loading }) => loading && css`
     background-color: ${({ theme }) => theme.colors.secondary['lightGrey']};
-
-    & img {
-      display: none;
-    }
   `}
-  
 
   & img {
     height: 36px;
@@ -61,6 +64,10 @@ export const Header = styled.div`
     margin: 0 1.2rem;
     width: 4px;
   }
+
+  ${({ loading }) => loading && css`
+
+  `}
 `
 
 export const HeaderItem = styled(body)`
@@ -74,7 +81,7 @@ export const Title = styled(h3)`
 
 export const Company = styled(body)`
   color: ${({ theme }) => theme.colors.secondary['darkGrey']};
-  margin-bottom: 24px;
+  margin-bottom: 4.4rem;
 `
 
 export const Location = styled(h4)`

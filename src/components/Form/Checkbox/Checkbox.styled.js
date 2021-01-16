@@ -31,6 +31,7 @@ export const StyledCheckbox = styled.div`
   cursor: pointer;
   display: flex;
   flex-grow: 0;
+  flex-shrink: 0;
   height: 24px;
   justify-content: center;
   outline: none;

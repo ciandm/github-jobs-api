@@ -5,6 +5,7 @@ import JobCard from './JobCard/JobCard';
 import Button from '../Button/Button';
 import useFetchJobs from '../../hooks/useFetchJobs';
 import Form from '../Form/Form';
+import { JobCardSkeleton } from './JobCard/JobCardSkeleton/JobCardSkeleton';
 
 function JobBoard({
   hideJobBoard,
@@ -71,7 +72,13 @@ function JobBoard({
       >
         {
           loading ? (
-            <h1>Loading...</h1>
+            [...Array(5)].map((_, i) => {
+              return (
+                <JobCardSkeleton
+                  dark={dark}
+                  key={i} />
+              )
+            })
           ) : (
               jobs.map(j => (
                 <JobCard

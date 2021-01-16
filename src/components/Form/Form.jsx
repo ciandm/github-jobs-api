@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import { useTheme } from '../../theme/ThemeProvider';
 import Input from './Input/Input'
 import * as Styled from './Form.styled';
@@ -15,6 +15,8 @@ function Form({
     dark
   } = useTheme();
 
+  const [display, setDisplay] = useState('desktop');
+
   function handleInputChange(input, value) {
     setFormInputs(prevInput => ({
       ...prevInput,
@@ -29,6 +31,18 @@ function Form({
     }))
   }
 
+  useEffect(() => {
+    const resizeListener = window.addEventListener("resize", () => {
+      if (window.innerWidth < 768) {
+        setDisplay('mobile')
+      } else {
+        setDisplay('desktop');
+      }
+    })
+
+    return () => window.removeEventListener("resize", resizeListener);
+  }, [])
+
   return (
     <Styled.Form
       dark={dark}
@@ -37,7 +51,7 @@ function Form({
       <Input
         dark={dark}
         name="description"
-        placeholder="Filter by title, companies, expertise..."
+        placeholder={display === 'desktop' ? "Filter by title, companies, expertise..." : "Filter by title..."}
         icon="search"
         value={formInputs.description}
         handleInputChange={handleInputChange}
@@ -52,7 +66,7 @@ function Form({
       />
       <Checkbox
         dark={dark}
-        label="Full Time Only"
+        label={display === 'desktop' ? 'Full Time Only' : 'Full Time'}
         name="fullTime"
         checked={formInputs.fullTime}
         handleCheckboxChange={handleCheckboxChange}
