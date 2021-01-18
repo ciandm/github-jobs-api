@@ -3,7 +3,7 @@ import {
   h3,
   h4,
   body
-} from '../../../theme/typography';
+} from '../../theme/typography';
 
 export const Skeleton = styled.div`
   background-color: ${({ dark }) => dark ? 'hsl(219, 35%, 10%)' : '#FFF'};

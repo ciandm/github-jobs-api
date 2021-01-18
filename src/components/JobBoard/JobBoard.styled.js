@@ -25,21 +25,24 @@ export const JobBoardContainer = styled.div`
   display: flex;
   flex-direction: column;
   width: 100%;
-  will-change: opacity, transform;
 
   ${({ hidden }) => hidden && css`
-    animation-name: ${hideContainer};
+    /* animation-name: ${hideContainer};
     animation-duration: .5s;
     animation-fill-mode: forwards;
-    animation-timing-function: ease-out;
+    animation-timing-function: ease-out; */
   `}
 
   @media ${({ theme }) => theme.mediaQueries['below-768']} {
     padding: 0 4rem;
   }
+
+  @media ${({ theme }) => theme.mediaQueries['below-480']} {
+    padding: 0 2.4rem;
+  }
 `
 
-export const JobBoard = styled.main`
+export const JobList = styled.main`
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   grid-auto-rows: min-content;
@@ -49,8 +52,14 @@ export const JobBoard = styled.main`
   width: 100%;
 
   @media ${({ theme }) => theme.mediaQueries['below-768']} {
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: repeat(auto-fill, minmax(22rem, 1fr));
     gap: 6.5rem 1.2rem;
+    padding-top: 7rem;
+  }
+
+  @media ${({ theme }) => theme.mediaQueries['below-480']} {
+    grid-template-columns: 1fr;
+    gap: 5rem 0;
     padding-top: 7rem;
   }
 `

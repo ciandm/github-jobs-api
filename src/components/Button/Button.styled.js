@@ -14,7 +14,12 @@ export const Button = styled.button.attrs(({ type, href, target }) => ({
   font-weight: 700;
   outline: none;
   padding: 1.6rem 3.6rem;
+  text-align: center;
   text-decoration: none;
+
+  @media ${({ theme }) => theme.mediaQueries['below-480']} {
+    align-self: initial;
+  }
 
   ${({ variation, dark }) => {
     // main button, consistent across light and dark mode

@@ -4,8 +4,9 @@ import { useTheme } from '../../theme/ThemeProvider';
 import JobCard from './JobCard/JobCard';
 import Button from '../Button/Button';
 import useFetchJobs from '../../hooks/useFetchJobs';
-import Form from '../Form/Form';
 import { JobCardSkeleton } from './JobCard/JobCardSkeleton/JobCardSkeleton';
+import JobFilter from '../JobFilter/JobFilter';
+import JobList from '../JobList/JobList';
 
 function JobBoard({
   hideJobBoard,
@@ -35,7 +36,7 @@ function JobBoard({
 
   const handleFormSubmit = e => {
     e.preventDefault();
-    const { description, location, fullTime } = formInputs
+    const { description, location, fullTime } = formInputs;
     setPage(1);
     setParams(prevParams => ({
       ...prevParams,
@@ -45,7 +46,7 @@ function JobBoard({
     }))
   }
 
-  const handleButtonClick = () => {
+  const handleLoadMore = () => {
     setPage(prevPage => prevPage + 1);
   }
 
@@ -62,14 +63,12 @@ function JobBoard({
     <Styled.JobBoardContainer
       hidden={hidden}
     >
-      <Form
+      <JobFilter
         handleFormSubmit={handleFormSubmit}
         formInputs={formInputs}
         setFormInputs={setFormInputs}
       />
-      <Styled.JobBoard
-        hidden={hidden}
-      >
+      <Styled.JobList>
         {
           loading ? (
             [...Array(5)].map((_, i) => {
@@ -80,31 +79,21 @@ function JobBoard({
               )
             })
           ) : (
-              jobs.map(j => (
-                <JobCard
-                  job={j}
-                  key={j.id}
-                  id={j.id}
-                  dark={dark}
-                  companyLogo={j.company_logo}
-                  createdAt={j.created_at}
-                  type={j.type}
-                  title={j.title}
-                  company={j.company}
-                  location={j.location}
-                  handleJobCardClick={handleJobCardClick}
-                />
-              ))
+              <JobList
+                jobs={jobs}
+                dark={dark}
+                handleJobCardClick={handleJobCardClick}
+              />
             )
         }
-      </Styled.JobBoard>
+      </Styled.JobList>
       { hasLoadMore &&
         <Button
           label="Load more"
           type="button"
           variation="primary"
           alignSelf="center"
-          handleButtonClick={handleButtonClick}
+          handleButtonClick={handleLoadMore}
         />
       }
     </Styled.JobBoardContainer>

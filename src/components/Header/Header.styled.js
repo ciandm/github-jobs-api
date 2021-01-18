@@ -1,5 +1,6 @@
 import styled from 'styled-components';
 import bgHeader from '../../assets/desktop/bg-pattern-header.svg';
+import bgHeaderMobile from '../../assets/mobile/bg-pattern-header.svg';
 
 export const Header = styled.div`
   background-image: url(${bgHeader});
@@ -13,6 +14,11 @@ export const Header = styled.div`
   @media ${({ theme }) => theme.mediaQueries['below-768']} {
     padding-left: 4rem;
     padding-right: 4rem;
+  }
+
+   @media ${({ theme }) => theme.mediaQueries['below-480']} {
+    background-image: url(${bgHeaderMobile});
+    padding: 3.2rem 2.4rem 7.2rem;
   }
 `
 

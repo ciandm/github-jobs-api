@@ -7,6 +7,7 @@ import {
   body
 } from '../../theme/typography';
 import footerBackground from '../../assets/desktop/bg-pattern-detail-footer.svg';
+import footerBackgroundMobile from '../../assets/mobile/bg-pattern-detail-footer.svg';
 import backArrow from '../../assets/keyboard_backspace-24px.svg'
 
 const slideContainerIn = keyframes`
@@ -32,6 +33,15 @@ export const Container = styled.div`
   max-width: 73rem;
   margin: 0 auto;
   width: 100%;
+
+  @media ${({ theme }) => theme.mediaQueries['below-768']} {
+    max-width: initial;
+    padding: 0 4rem;
+  }
+
+  @media ${({ theme }) => theme.mediaQueries['below-480']} {
+    padding: 0 2.4rem;
+  }
 `
 
 // Header Section
@@ -42,6 +52,19 @@ export const Header = styled.header`
   display: flex;
   margin-bottom: 4.4rem;
   position: relative;
+
+  @media ${({ theme }) => theme.mediaQueries['below-768']} {
+    margin-bottom: 3.2rem;
+
+    & a {
+      padding: 1.6rem 2rem;
+    }
+  }
+
+  @media ${({ theme }) => theme.mediaQueries['below-480']} {
+    align-items: center;
+    flex-direction: column;
+  }
 `
 
 export const BackButton = styled.button`
@@ -80,6 +103,18 @@ export const LogoContainer = styled.div`
   height: 14rem;
   padding: 2rem 0 2rem 2rem;
   width: 14rem;
+
+  @media ${({ theme }) => theme.mediaQueries['below-480']} {
+    background-color: ${({ dark, theme }) => dark ? theme.colors.primary['veryDarkBlue'] : theme.colors.secondary['white']};
+    border-radius: 6px;
+    box-shadow: ${({ dark }) => dark ? '0 6px 6px hsla(220, 29%, 10%, .8)' : '0 6px 6px rgba(20, 20, 20, 0.1)'};
+    height: 6rem;
+    padding: 0;
+    margin-top: -2.5rem;
+    margin-bottom: 2.4rem;
+    padding: 1rem;
+    width: 6rem;
+  }
 `
 
 export const Logo = styled.div`
@@ -88,7 +123,7 @@ export const Logo = styled.div`
   background-size: contain;
   background-repeat: no-repeat;
   height: 100%;
-  width: 100%initial;
+  width: 100%;
 `
 
 export const HeaderInner = styled.div`
@@ -97,12 +132,24 @@ export const HeaderInner = styled.div`
   justify-content: space-between;
   width: 100%;
   padding: 0 4rem;
+
+  @media ${({ theme }) => theme.mediaQueries['below-480']} {
+    align-items: center;
+    flex-direction: column;
+    padding-bottom: 3.2rem;
+  }
 `
 
 export const CompanyDetails = styled.div`
   display: flex;
   flex-direction: column;
   margin-right: 2.4rem;
+
+  @media ${({ theme }) => theme.mediaQueries['below-480']} {
+    margin-right: 0;
+    margin-bottom: 2.4rem;
+    text-align: center;
+  }
 `
 
 export const Company = styled(h2)`
@@ -122,18 +169,35 @@ export const Job = styled.main`
   display: flex;
   flex-direction: column;
   padding: 48px;
+
+  @media ${({ theme }) => theme.mediaQueries['below-480']} {
+    padding: 4rem 2.4rem 3.2rem;
+  }
 `
 
 export const JobHeader = styled.header`
   display: flex;
   justify-content: space-between;
   margin-bottom: 4.4rem;
+
+  & a {
+    padding: 1.6rem 2.8rem;
+  }
+  
+   @media ${({ theme }) => theme.mediaQueries['below-480']} {
+    align-items: stretch;
+    flex-direction: column;
+  }
 `
 
 export const JobDescription = styled.div`
   display: flex;
   flex-direction: column;
   margin-right: 2.4rem;
+
+  @media ${({ theme }) => theme.mediaQueries['below-480']} {
+    margin-bottom: 3.2rem;
+  }
 `
 
 export const Date = styled.div`
@@ -264,9 +328,14 @@ export const Footer = styled.footer`
   & a {
     color: ${({ theme }) => theme.colors.secondary['white']};
   }
+
+  @media ${({ theme }) => theme.mediaQueries['below-480']} {
+    padding: 3.2rem;
+  }
 `
 
 export const FooterTitle = styled(h3)`
+  background-image: url(${footerBackgroundMobile});
   color: ${({ theme }) => theme.colors.secondary['white']};
   margin-bottom: 2.8rem;
 `
@@ -279,6 +348,10 @@ export const Banner = styled.div`
   justify-content: center;
   margin-top: 7.2rem;
   padding: 2.4rem 0;
+
+  @media ${({ theme }) => theme.mediaQueries['below-480']} {
+    margin-top: 4rem;
+  }
 `
 
 export const BannerInner = styled.div`
@@ -287,12 +360,26 @@ export const BannerInner = styled.div`
   justify-content: space-between;
   max-width: 73rem;
   width: 100%;
+
+  @media ${({ theme }) => theme.mediaQueries['below-768']} {
+    max-width: initial;
+    padding: 0 4rem;
+  }
+
+  @media ${({ theme }) => theme.mediaQueries['below-480']} {
+    align-items: stretch;
+    flex-direction: column;
+  }
 `
 
 export const BannerDetails = styled.div`
   display: flex;
   flex-direction: column;
   margin-right: 2.4rem;
+
+  @media ${({ theme }) => theme.mediaQueries['below-480']} {
+    display: none;
+  }
 `
 
 export const BannerTitle = styled(h3)`

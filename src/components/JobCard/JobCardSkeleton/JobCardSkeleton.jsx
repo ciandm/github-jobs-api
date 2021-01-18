@@ -2,9 +2,9 @@ import React from 'react'
 import * as Styled from './JobCardSkeleton.styled';
 import Skeleton, { SkeletonTheme } from 'react-loading-skeleton';
 
-export const JobCardSkeleton = ({
+function JobCardSkeleton({
   dark
-}) => {
+}) {
   return (
     <Styled.SkeletonCard
       dark={dark}
@@ -48,3 +48,5 @@ export const JobCardSkeleton = ({
     </Styled.SkeletonCard >
   )
 }
+
+export default JobCardSkeleton;

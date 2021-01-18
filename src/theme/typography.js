@@ -3,11 +3,21 @@ import styled from 'styled-components';
 export const h1 = styled.h1`
   font-size: 2.8rem;
   line-height: 3.4rem;
+
+  @media ${({ theme }) => theme.mediaQueries['below-480']} {
+    font-size: 2rem;
+    line-height: 2.4rem;
+  }
 `
 
 export const h2 = styled.h2`
   font-size: 2.4rem;
   line-height: 2.9rem;
+
+  @media ${({ theme }) => theme.mediaQueries['below-480']} {
+    font-size: 2rem;
+    line-height: 2.4rem;
+  }
 `
 
 export const h3 = styled.h3`

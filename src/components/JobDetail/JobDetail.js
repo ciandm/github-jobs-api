@@ -52,7 +52,9 @@ function JobDetail({
           <Styled.BackButton
             onClick={() => cancelJobDetail()}
           >Back</Styled.BackButton>
-          <Styled.LogoContainer>
+          <Styled.LogoContainer
+            dark={dark}
+          >
             <Styled.Logo
               url={company_logo}
             />
