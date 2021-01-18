@@ -1,10 +1,9 @@
 import React, { useState, useEffect } from 'react'
 import * as Styled from './JobBoard.styled';
 import { useTheme } from '../../theme/ThemeProvider';
-import JobCard from './JobCard/JobCard';
 import Button from '../Button/Button';
 import useFetchJobs from '../../hooks/useFetchJobs';
-import { JobCardSkeleton } from './JobCard/JobCardSkeleton/JobCardSkeleton';
+import JobCardSkeleton from '../JobCard/JobCardSkeleton/JobCardSkeleton';
 import JobFilter from '../JobFilter/JobFilter';
 import JobList from '../JobList/JobList';
 
