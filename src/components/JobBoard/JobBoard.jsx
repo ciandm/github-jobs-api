@@ -3,7 +3,6 @@ import * as Styled from './JobBoard.styled';
 import { useTheme } from '../../theme/ThemeProvider';
 import Button from '../Button/Button';
 import useFetchJobs from '../../hooks/useFetchJobs';
-import JobCardSkeleton from '../JobCard/JobCardSkeleton/JobCardSkeleton';
 import JobFilter from '../JobFilter/JobFilter';
 import JobList from '../JobList/JobList';
 
@@ -16,7 +15,8 @@ function JobBoard({
   const [formInputs, setFormInputs] = useState({
     description: '',
     location: '',
-    fullTime: false
+    fullTime: false,
+    isPristine: true
   })
 
   const [page, setPage] = useState(1);
@@ -35,13 +35,18 @@ function JobBoard({
 
   const handleFormSubmit = e => {
     e.preventDefault();
-    const { description, location, fullTime } = formInputs;
+    const { description, location, fullTime, isPristine } = formInputs;
+    if (isPristine) return;
     setPage(1);
     setParams(prevParams => ({
       ...prevParams,
       description,
       location,
-      fullTime
+      fullTime,
+    }))
+    setFormInputs(prevInputs => ({
+      ...prevInputs,
+      isPristine: description === '' && location === '' && fullTime === false
     }))
   }
 
@@ -67,26 +72,21 @@ function JobBoard({
         formInputs={formInputs}
         setFormInputs={setFormInputs}
       />
-      <Styled.JobList>
-        {
-          loading ? (
-            [...Array(5)].map((_, i) => {
-              return (
-                <JobCardSkeleton
-                  dark={dark}
-                  key={i} />
-              )
-            })
-          ) : (
-              <JobList
-                jobs={jobs}
-                dark={dark}
-                handleJobCardClick={handleJobCardClick}
-              />
-            )
-        }
-      </Styled.JobList>
-      { hasLoadMore &&
+      { error ? (
+        <Styled.JobBoardError
+          dark={dark}
+        >
+          Something went wrong. Please try again.
+        </Styled.JobBoardError>
+      ) : (
+          <JobList
+            loading={loading}
+            jobs={jobs}
+            dark={dark}
+            handleJobCardClick={handleJobCardClick}
+          />
+        )}
+      { hasLoadMore && !error &&
         <Button
           label="Load more"
           type="button"

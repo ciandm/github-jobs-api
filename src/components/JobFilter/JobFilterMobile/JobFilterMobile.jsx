@@ -11,27 +11,14 @@ import { ReactComponent as SearchIcon } from '../../../assets/icon-search.svg';
 function JobFilterMobile({
   handleFormSubmit,
   formInputs,
-  setFormInputs
+  handleInputChange,
+  handleCheckboxChange
 }) {
 
   const [isActive, setIsActive] = useState(false);
   const {
     dark
   } = useTheme();
-
-  function handleInputChange(input, value) {
-    setFormInputs(prevInput => ({
-      ...prevInput,
-      [input]: value
-    }))
-  }
-
-  function handleCheckboxChange(checked) {
-    setFormInputs(prevInput => ({
-      ...prevInput,
-      fullTime: checked
-    }))
-  }
 
   function handleModalOpen() {
     setIsActive(true);

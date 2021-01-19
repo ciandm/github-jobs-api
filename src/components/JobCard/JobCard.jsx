@@ -5,8 +5,8 @@ import Skeleton from 'react-loading-skeleton';
 function JobCard({
   job,
   id,
-  companyLogo,
-  createdAt,
+  company_logo,
+  created_at,
   type,
   title,
   company,
@@ -22,13 +22,13 @@ function JobCard({
       {...restProps}
     >
       <Styled.Logo>
-        <img src={companyLogo} alt="Company logo" />
+        <img src={company_logo} alt="Company logo" />
       </Styled.Logo>
       { loading ? (
         <Skeleton height={20} />
       ) : (
           <Styled.Header>
-            <Styled.HeaderItem>5h ago</Styled.HeaderItem>
+            <Styled.HeaderItem>{created_at}</Styled.HeaderItem>
             <span />
             <Styled.HeaderItem>{type}</Styled.HeaderItem>
           </Styled.Header>

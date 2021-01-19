@@ -8,7 +8,8 @@ import Checkbox from '../../Checkbox/Checkbox';
 function JobFilterTablet({
   handleFormSubmit,
   formInputs,
-  setFormInputs
+  handleInputChange,
+  handleCheckboxChange
 }) {
 
   const {
@@ -16,20 +17,6 @@ function JobFilterTablet({
   } = useTheme();
 
   const [display, setDisplay] = useState('desktop');
-
-  function handleInputChange(input, value) {
-    setFormInputs(prevInput => ({
-      ...prevInput,
-      [input]: value
-    }))
-  }
-
-  function handleCheckboxChange(checked) {
-    setFormInputs(prevInput => ({
-      ...prevInput,
-      fullTime: checked
-    }))
-  }
 
   useEffect(() => {
     const resizeListener = window.addEventListener("resize", () => {

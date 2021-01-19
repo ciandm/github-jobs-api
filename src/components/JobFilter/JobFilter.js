@@ -16,18 +16,36 @@ function JobFilter({
     return () => window.removeEventListener('resize', updateMedia);
   })
 
+  function handleInputChange(input, value) {
+    setFormInputs(prevInput => ({
+      ...prevInput,
+      [input]: value,
+      isPristine: false
+    }))
+  }
+
+  function handleCheckboxChange(checked) {
+    setFormInputs(prevInput => ({
+      ...prevInput,
+      fullTime: checked,
+      isPristine: false
+    }))
+  }
+
   return (
     <>
       { isTablet ?
         (<JobFilterTablet
           handleFormSubmit={handleFormSubmit}
           formInputs={formInputs}
-          setFormInputs={setFormInputs}
+          handleCheckboxChange={handleCheckboxChange}
+          handleInputChange={handleInputChange}
         />) :
         (<JobFilterMobile
           handleFormSubmit={handleFormSubmit}
           formInputs={formInputs}
-          setFormInputs={setFormInputs}
+          handleCheckboxChange={handleCheckboxChange}
+          handleInputChange={handleInputChange}
         />)}
     </>
   )

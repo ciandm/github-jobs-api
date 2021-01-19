@@ -51,7 +51,9 @@ function JobDetail({
         >
           <Styled.BackButton
             onClick={() => cancelJobDetail()}
-          >Back</Styled.BackButton>
+          >
+            Back
+          </Styled.BackButton>
           <Styled.LogoContainer
             dark={dark}
           >
@@ -63,8 +65,12 @@ function JobDetail({
             <Styled.CompanyDetails>
               <Styled.Company
                 dark={dark}
-              >{company}</Styled.Company>
-              <Styled.Website>{company_url}</Styled.Website>
+              >
+                {company}
+              </Styled.Company>
+              <Styled.Website>
+                {company_url}
+              </Styled.Website>
             </Styled.CompanyDetails>
             <Button
               variation="secondary"
