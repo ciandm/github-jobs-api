@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState } from 'react'
 import * as Styled from './JobBoard.styled';
 import { useTheme } from '../../theme/ThemeProvider';
 import Button from '../Button/Button';

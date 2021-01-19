@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React, { useState } from 'react'
 import { useTheme } from '../../../theme/ThemeProvider'
 import Input from '../../Input/Input';
 import * as Styled from './JobFilterMobile.styled';
