@@ -12,7 +12,7 @@ function JobList({
   handleJobCardClick
 }) {
 
-  if (jobs.length < 1) {
+  if (jobs.length < 1 && !loading) {
     return (
       <Styled.EmptyJobs>
         <Styled.EmptyImage
