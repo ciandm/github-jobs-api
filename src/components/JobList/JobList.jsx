@@ -3,6 +3,7 @@ import * as Styled from './JobList.styled';
 import JobCard from '../JobCard/JobCard';
 import JobCardSkeleton from '../JobCard/JobCardSkeleton/JobCardSkeleton';
 import formatDistanceStrict from 'date-fns/formatDistanceStrict'
+import emptyImage from '../../assets/undraw_empty_xct9.svg';
 
 function JobList({
   jobs,
@@ -10,6 +11,19 @@ function JobList({
   loading,
   handleJobCardClick
 }) {
+
+  if (jobs.length < 1) {
+    return (
+      <Styled.EmptyJobs>
+        <Styled.EmptyImage
+          src={emptyImage}
+          alt="There are no results."
+        />
+        <Styled.EmptyTitle dark={dark}>No results. Please refine your search.</Styled.EmptyTitle>
+      </Styled.EmptyJobs>
+    )
+  }
+
   return (
     <Styled.JobList>
       {

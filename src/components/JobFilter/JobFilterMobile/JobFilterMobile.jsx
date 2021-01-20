@@ -28,10 +28,15 @@ function JobFilterMobile({
     if (e.target.id === 'modal-overlay') setIsActive(false);
   }
 
+  function handleFormSubmission(e) {
+    if (isActive) setIsActive(false);
+    handleFormSubmit(e);
+  }
+
   return (
     <Styled.Form
       dark={dark}
-      onSubmit={(e) => handleFormSubmit(e)}
+      onSubmit={(e) => handleFormSubmission(e)}
     >
       <Styled.InputGroup>
         <Input
@@ -52,7 +57,7 @@ function JobFilterMobile({
           pathFillColor="#FFF"
           variation="primary"
           type="submit"
-          handleButtonClick={handleFormSubmit}
+          handleButtonClick={handleModalOpen}
         />
       </Styled.InputGroup>
       {

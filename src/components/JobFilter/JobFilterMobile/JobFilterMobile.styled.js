@@ -18,11 +18,15 @@ export const Modal = styled.div`
   display: flex;
   height: 100%;
   left: 0;
-  padding: 0 2.4rem;
+  padding: 0 4rem;
   position: fixed;
   top: 0;
   width: 100%;
   z-index: 100;
+
+  @media ${({ theme }) => theme.mediaQueries['below-480']} {
+    padding: 0 2.4rem;
+  }
 `
 
 export const ModalGroup = styled.div`
