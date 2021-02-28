@@ -44,7 +44,7 @@ function reducer(state, action) {
   }
 }
 
-const API_URL = 'https://cors-anywhere.herokuapp.com/https://jobs.github.com/positions.json';
+const API_URL = 'https://boiling-coast-02867.herokuapp.com/https://jobs.github.com/positions.json';
 
 const useFetchJobs = (params, page) => {
   const [state, dispatch] = useReducer(reducer, { jobs: [], loading: true, hasLoadMore: false });
